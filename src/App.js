@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import "./reset.css"
+import logo from "./asserts/cnodejs_light.svg"
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="header-logo">
+          <img src={logo} alt="" /> 
+        </div>
+        <div className="header-search">
+          <input />
+        </div>
+        <ul className="header-tab">
+          <li>首页</li>
+          <li>新手入门</li>
+          <li>API</li>
+          <li>关于</li>
+          <li>注册</li>
+          <li>登陆</li>
+        </ul>
       </header>
+      {this.props.children}
     </div>
   );
 }
