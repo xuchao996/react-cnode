@@ -1,5 +1,4 @@
 .App {
-
 }
 .App .App-header {
   background: #444;
@@ -42,8 +41,10 @@
   display: inline-block;
   padding: 10px 15px;
   line-height: 20px;
-  color: #ccc;
-}
-.header-tab li:hover {
-  color: #fff;
+  a {
+    color: #ccc;
+    &:hover {
+      color: #fff;
+    }
+  }
 }

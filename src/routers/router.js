@@ -14,6 +14,10 @@ const router = [
 		indexRoute: {component: Home},
 		childRoutes: [
 			{
+				path: 'home',
+				component: Home
+			},
+			{
 				path: 'getstart',
 				component: Getstart
 			},
