@@ -10,11 +10,24 @@ const router = [
 	{
 		path: "/",
 		component: App,
-		// IndexRoute: {component: Home},
+		// 小写
+		indexRoute: {component: Home},
 		childRoutes: [
+			{
+				path: 'getstart',
+				component: Getstart
+			},
+			{
+				path: 'api',
+				component: Api
+			},
 			{
 				path: 'about',
 				component: About
+			},
+			{
+				path: 'login',
+				component: Login
 			}
 		]
 	}
