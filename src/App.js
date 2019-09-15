@@ -1,9 +1,7 @@
 import React from 'react';
+import { Link } from "react-router";
 import "./reset.css"
 import "./App.scss"
-// import {Component} from "react"
-
-import { Link } from "react-router";
 import logo from "./asserts/cnodejs_light.svg"
 
 // class App extends Component () {
