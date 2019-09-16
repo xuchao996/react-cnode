@@ -1,0 +1,18 @@
+.list {
+    li {
+        height: 50px;
+        line-height: 50px;
+        padding: 10px;
+        vertical-align: middle;
+        cursor: pointer;
+        & > div {
+            display: inline-block;
+            img {
+                height: 30px;
+            }
+            &.count {
+                color: #999;
+            }
+        }
+    }
+}

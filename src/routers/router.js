@@ -4,6 +4,7 @@ import About from "../views/about.js"
 import Login from "../views/login.js"
 import Getstart from "../views/getstart.js"
 import Home from "../views/home.js"
+import TopicDetail from "../views/topicDetail.js"
 
 
 const router = [
@@ -32,6 +33,10 @@ const router = [
 			{
 				path: 'login',
 				component: Login
+			},
+			{
+				path: 'detail/:id',
+				component: TopicDetail
 			}
 		]
 	}

@@ -1,7 +1,7 @@
 import request from "../request"
 
 const topic = "/v1/topics";
-const topicDetail = "/v1/topics";
+const topicDetail = "/v1/topic";
 const topicCollect = "/v1/topics";
 
 function getTopics () {
@@ -15,6 +15,14 @@ function getTopics () {
     })
 };
 
+function getTopicDetail (id) {
+    return request({
+        method: 'get',
+        url: `${topicDetail}/${id}`
+    })
+};
+
 export {
-    getTopics
+    getTopics,
+    getTopicDetail
 }
