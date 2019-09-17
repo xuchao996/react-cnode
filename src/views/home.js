@@ -24,6 +24,45 @@ function ListItem (props) {
 		</Fragment>
 	)
 }
+function Tabs (props) {
+	const list = [
+		{
+			name: '全部',
+			code: ''
+		},{
+			name: '分享',
+			code: 'share'
+		},{
+			name: '问答',
+			code: 'ask'
+		},{
+			name: '招聘',
+			code: 'job'
+		}, {
+			name: '客户端测试',
+			code: 'test'
+			
+		}
+	]
+	return (
+		<div></div>
+	)
+}
+
+function ContentContainer (props) {
+	return (
+		<div className="main">
+			{props.children}
+		</div>
+	)
+}
+function AsideContainer (props) {
+	return (
+		<aside className="aside">
+			{props.children}
+		</aside>
+	)
+}
 
 class Home extends Component{
 	constructor (props){
@@ -33,10 +72,6 @@ class Home extends Component{
 		}
 		this.handleClickItem = this.handleClickItem.bind(this)
 	}
-	// ask for `router` from context
-	// contextTypes: {
-	// 	router: React.PropTypes.object
-	// }
 	componentDidMount () {
 		getTopics().then((response) => {
 			const data = response;
@@ -47,9 +82,7 @@ class Home extends Component{
 			}
 		})
 	}
-	// 事件委托
 	handleClickItem (target) {
-		console.log(target);
 		const {id} = target;
 		if (!id) return;
 		this.context.router.push({
@@ -58,16 +91,19 @@ class Home extends Component{
 	}
 	render() {
 		return (
-			<div>
-				<ul className="list">
-					{
-						this.state.list.map(item => (
-							<ListItem item={item} key={item.id} handleClickItem={this.handleClickItem}>
-								{item.title}
-							</ListItem>
-						))
-					}
-				</ul>
+			<div className="home">
+				<ContentContainer>
+
+					<ul className="list">
+						{
+							this.state.list.map(item => (
+								<ListItem item={item} key={item.id} handleClickItem={this.handleClickItem}>
+									{item.title}
+								</ListItem>
+							))
+						}
+					</ul>
+				</ContentContainer>
 			</div>
 		);
 	}

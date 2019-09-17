@@ -1,18 +1,39 @@
 .list {
     li {
         height: 50px;
-        line-height: 50px;
         padding: 10px;
         vertical-align: middle;
         cursor: pointer;
+        border-top: 1px solid #f0f0f0;
+        background-color: #fff;
+
+        &::nth-child(1) {
+            border-top: none;
+        }
         & > div {
-            display: inline-block;
+            // display: inline-block;
+            float: left;
             img {
                 height: 30px;
             }
             &.count {
+                margin-top: 8px;
                 color: #999;
+                width: 70px;
+                padding: 0 10px;
+                font-size: 12px;
             }
+            &.title {
+                margin-top: 4px;
+                width: 60%;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+
+            }
+        }
+        &:hover {
+            background-color: #eee;
         }
     }
 }
