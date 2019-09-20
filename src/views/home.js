@@ -11,7 +11,7 @@ function ListItem (props) {
 		<Fragment>
 			<li onClick={() => props.handleClickItem(item)}>
 				<div className="person">
-					<img src={author.avatar_url} />
+					<img src={author.avatar_url} alt="" />
 				</div>
 				<div className="count">
 					<span className="visit_count">{item.visit_count}</span>/
@@ -38,14 +38,20 @@ function Tabs (props) {
 		},{
 			name: '招聘',
 			code: 'job'
-		}, {
-			name: '客户端测试',
-			code: 'test'
-			
-		}
+		},
+		// {
+		// 	name: '客户端测试',
+		// 	code: 'test'
+		// }
 	]
 	return (
-		<div></div>
+		<ul className="tabs">
+			{
+				list.map(item => {
+					return <li onClick={() => props.handleToggleTab(item.code)} key={item.code} className={props.code===item.code?'active': null}>{item.name}</li>
+				})
+			}
+		</ul>
 	)
 }
 
@@ -68,9 +74,11 @@ class Home extends Component{
 	constructor (props){
 		super(props);
 		this.state = {
-			list: []
+			list: [],
+			tab: ''
 		}
 		this.handleClickItem = this.handleClickItem.bind(this)
+		this.handleToggleTab = this.handleToggleTab.bind(this)
 	}
 	componentDidMount () {
 		getTopics().then((response) => {
@@ -89,11 +97,24 @@ class Home extends Component{
 			pathname: '/detail/' + id,
 		})
 	}
+	handleToggleTab (value) {
+		getTopics({
+			tab: value
+		}).then((response) => {
+			const data = response;
+			if (data.success) {
+				this.setState({
+					list: data.data,
+					tab: value
+				})
+			}
+		})
+	}
 	render() {
 		return (
 			<div className="home">
 				<ContentContainer>
-
+					<Tabs code={this.state.tab} handleToggleTab={this.handleToggleTab}></Tabs>
 					<ul className="list">
 						{
 							this.state.list.map(item => (

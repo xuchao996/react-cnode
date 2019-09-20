@@ -4,14 +4,16 @@ const topic = "/v1/topics";
 const topicDetail = "/v1/topic";
 const topicCollect = "/v1/topics";
 
-function getTopics (params = {
-    tab: 'good',
-    limit: 20
-}) {
+function getTopics (params) {
+    // default tab: '', limit: 20,
     return request({
         method: 'get',
         url: topic,
-        params,
+        params: {
+            tab: '',
+            limit: 20,
+            ...params
+        },
     })
 };
 

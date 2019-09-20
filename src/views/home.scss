@@ -1,39 +1,64 @@
-.list {
-    li {
+$active_color: #80bd01;
+.home {
+    background-color: #fff;
+
+    .list {
+        > li {
+            height: 50px;
+            padding: 10px;
+            vertical-align: middle;
+            cursor: pointer;
+            border-top: 1px solid #f0f0f0;
+    
+            &::nth-child(1) {
+                border-top: none;
+            }
+            & > div {
+                // display: inline-block;
+                float: left;
+                min-width: 30px;
+                img {
+                    height: 30px;
+                }
+                &.count {
+                    margin-top: 8px;
+                    color: #999;
+                    width: 70px;
+                    padding: 0 10px;
+                    font-size: 12px;
+                }
+                &.title {
+                    margin-top: 4px;
+                    width: 60%;
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    white-space: nowrap;
+    
+                }
+            }
+            &:hover {
+                background-color: #eee;
+            }
+        }
+    }
+    .tabs {
         height: 50px;
-        padding: 10px;
-        vertical-align: middle;
-        cursor: pointer;
-        border-top: 1px solid #f0f0f0;
-        background-color: #fff;
+        line-height: 50px;
+        background-color: #f6f6f6;
+        li {
+            &.active {
+                background-color: $active_color;
+                color: #fff;
+            }
+            display: inline-block;
+            padding: 0 10px;
+            color: $active_color;
+            border-radius: 3px 3px;
+            cursor: pointer;
+            &:hover {
+                @extend .active;
+            }
 
-        &::nth-child(1) {
-            border-top: none;
-        }
-        & > div {
-            // display: inline-block;
-            float: left;
-            img {
-                height: 30px;
-            }
-            &.count {
-                margin-top: 8px;
-                color: #999;
-                width: 70px;
-                padding: 0 10px;
-                font-size: 12px;
-            }
-            &.title {
-                margin-top: 4px;
-                width: 60%;
-                overflow: hidden;
-                text-overflow:ellipsis;
-                white-space: nowrap;
-
-            }
-        }
-        &:hover {
-            background-color: #eee;
         }
     }
 }
