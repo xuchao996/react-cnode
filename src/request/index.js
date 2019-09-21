@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 const request = Axios.create({
-    baseURL: 'https://cnodejs.org/api/',
+    baseURL: 'https://cnodejs.org/',
     timeout: 5000,
 });
 

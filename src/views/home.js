@@ -7,10 +7,14 @@ import { PropTypes } from "prop-types";
 function ListItem (props) {
 	const author = props.item.author
 	const item = props.item
+	const clickHandler = function (e) {
+		e.stopPropagation()
+		props.handleClickUser(item)
+	}
 	return (
 		<Fragment>
-			<li onClick={() => props.handleClickItem(item)}>
-				<div className="person">
+			<li onClick={() => props.handleClickItem(item)}>{/*带参数问题*/}
+				<div className="person" onClick={clickHandler}>
 					<img src={author.avatar_url} alt="" />
 				</div>
 				<div className="count">
@@ -79,6 +83,7 @@ class Home extends Component{
 		}
 		this.handleClickItem = this.handleClickItem.bind(this)
 		this.handleToggleTab = this.handleToggleTab.bind(this)
+		this.handleClickUser = this.handleClickUser.bind(this)
 	}
 	componentDidMount () {
 		getTopics().then((response) => {
@@ -97,6 +102,23 @@ class Home extends Component{
 			pathname: '/detail/' + id,
 		})
 	}
+	handleClickUser (target) {
+		console.log(target);
+		const {author} = target;
+		this.context.router.push({
+			pathname: '/user/' + author.loginname,
+		})
+		// getUserDetail(author.loginname).then((response) => {
+		// 	const data = response;
+		// 	if (data.success) {
+		// 		// this.setState({
+		// 		// 	list: data.data,
+		// 		// 	tab: value
+		// 		// })
+		// 	}
+		// })
+	}
+
 	handleToggleTab (value) {
 		getTopics({
 			tab: value
@@ -118,7 +140,10 @@ class Home extends Component{
 					<ul className="list">
 						{
 							this.state.list.map(item => (
-								<ListItem item={item} key={item.id} handleClickItem={this.handleClickItem}>
+								<ListItem item={item} key={item.id} 
+									handleClickItem={this.handleClickItem}
+									handleClickUser={this.handleClickUser}
+								>
 									{item.title}
 								</ListItem>
 							))

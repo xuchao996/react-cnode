@@ -5,7 +5,7 @@ import Login from "../views/login.js"
 import Getstart from "../views/getstart.js"
 import Home from "../views/home.js"
 import TopicDetail from "../views/topicDetail.js"
-
+import UserDetail from "../views/userDetail.js"
 
 const router = [
 	{
@@ -37,6 +37,10 @@ const router = [
 			{
 				path: 'detail/:id',
 				component: TopicDetail
+			},
+			{
+				path: 'user/:id',
+				component: UserDetail
 			}
 		]
 	}
