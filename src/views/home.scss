@@ -1,7 +1,5 @@
 $active_color: #80bd01;
 .home {
-    background-color: #fff;
-
     .list {
         > li {
             height: 50px;
@@ -19,6 +17,7 @@ $active_color: #80bd01;
                 min-width: 30px;
                 img {
                     height: 30px;
+                    width: 30px;
                 }
                 &.count {
                     margin-top: 8px;
@@ -59,6 +58,44 @@ $active_color: #80bd01;
                 @extend .active;
             }
 
+        }
+    }
+}
+.btn {
+    cursor: pointer;
+    background-color: #5bc0de;
+    border-radius: 3px;
+}
+.home {
+    position: relative;
+    .main {
+        background-color: #fff;
+    }
+    .aside {
+        width: 300px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 14px;
+        .aside-item {
+            padding: 10px;
+            border-radius: 3px;
+            background-color: #fff;
+            p {
+                margin-bottom: 10px;
+                span {
+                    display: inline-block;
+                    padding: 3px 10px;
+                    @extend .btn;
+                }
+                i {
+                    @extend .btn;
+                }
+                &:nth-child(1) {
+                    color: #333;
+                }
+            }
         }
     }
 }

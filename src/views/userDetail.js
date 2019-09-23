@@ -2,11 +2,13 @@ import React, {Component} from "react"
 
 import { getUserDetail } from "../Api";
 
+import {ContentContainer, AsideContainer} from "../components";
+
 class TopicDetail extends Component{
     constructor (props) {
         super(props)
         this.state = {
-            detail: null
+            detail: {}
         }
     }
     componentDidMount () {
@@ -24,11 +26,17 @@ class TopicDetail extends Component{
         })
     }
 	render() {
+        const {loginname} = this.state.detail;
 		return (
-			<div>
-				TopicDetail
-                <code dangerouslySetInnerHTML={{__html: this.state.detail && this.state.detail.content}}>
-                </code>
+			<div className="home user">
+				<ContentContainer>
+                    <div className="user-info">
+                        <p>{loginname}</p>
+                    </div>
+                    {/* 最近创建的话题列表 */}
+                    {/* 最近参与的话题列表 */}
+                </ContentContainer>
+                <AsideContainer></AsideContainer>
 			</div>
 		);
 	}

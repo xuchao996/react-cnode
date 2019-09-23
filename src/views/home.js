@@ -4,6 +4,8 @@ import "./home.scss";
 
 import { PropTypes } from "prop-types";
 
+import {ContentContainer, AsideContainer} from "../components"
+
 function ListItem (props) {
 	const author = props.item.author
 	const item = props.item
@@ -56,21 +58,6 @@ function Tabs (props) {
 				})
 			}
 		</ul>
-	)
-}
-
-function ContentContainer (props) {
-	return (
-		<div className="main">
-			{props.children}
-		</div>
-	)
-}
-function AsideContainer (props) {
-	return (
-		<aside className="aside">
-			{props.children}
-		</aside>
 	)
 }
 
@@ -150,6 +137,12 @@ class Home extends Component{
 						}
 					</ul>
 				</ContentContainer>
+				<AsideContainer>
+					<div className="aside-item">
+						<p>CNode：Node.js专业中文社区</p>
+						<p>您可以 <i> 登录 </i>或<i> 注册 </i>, 也可以<span> 通过 GitHub 登录</span></p>
+					</div>
+				</AsideContainer>
 			</div>
 		);
 	}

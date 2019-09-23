@@ -1,0 +1,55 @@
+.detail {
+    .content-header {
+        padding: 10px;
+        .title {
+            line-height: 2em;
+            i {
+                font-size: 12px;
+                padding: 0 2px;
+                border-radius: 3px;
+                font-weight: 400;
+                margin-right: 5px;
+                color: #fff;
+                background-color: #80bd01;
+            }
+        }
+        .author {
+            line-height: 1;
+            vertical-align: middle;
+            font-size: 12px;
+            color: #999;
+            img {
+                width: 30px;
+                margin-right: 10px;
+                border-radius: 50%;
+            }
+            span {
+                display: inline-block;
+                margin-top: 10px;
+                vertical-align: top;
+            }
+        }
+    }
+    // .content
+    code {
+        .markdown-text {
+            padding: 0 20px;
+            border-top: 1px solid #eee;
+        }
+        p {
+            font-size: 15px;
+            line-height: 1.7em;
+            margin: 1em 0;
+        }
+    }
+}
+
+.reply-list {
+    background-color: #f6f6f6;
+    padding: 20px;
+    li {
+        p {
+            line-height: 20px;
+        }
+    }
+}
