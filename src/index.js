@@ -1,15 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { Router, hashHistory } from 'react-router'
+import { Router, hashHistory } from "react-router";
 
-import './index.css';
+import "./index.css";
 import router from "./routers/router.js";
 // import App from './App';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(<Router history={hashHistory} routes={router} />, document.getElementById('root'))
-
+ReactDOM.render(
+  <Router history={hashHistory} routes={router} />,
+  document.getElementById("root")
+);
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 
