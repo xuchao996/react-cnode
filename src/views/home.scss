@@ -41,16 +41,22 @@ $active_color: #80bd01;
         }
     }
     .tabs {
-        height: 50px;
-        line-height: 50px;
+        height: 40px;
+        line-height: 40px;
         background-color: #f6f6f6;
+        padding: 0 10px;
         li {
+            width: 36px;
+            height: 22px;
+            line-height: 22px;
+            text-align: center;
             &.active {
                 background-color: $active_color;
                 color: #fff;
             }
             display: inline-block;
-            padding: 0 10px;
+            margin: 0 10px;
+            font-size: 14px;
             color: $active_color;
             border-radius: 3px 3px;
             cursor: pointer;
@@ -72,7 +78,8 @@ $active_color: #80bd01;
         background-color: #fff;
     }
     .aside {
-        width: 300px;
+        max-width: 300px;
+        min-width: 200px;
         height: 100%;
         position: absolute;
         top: 0;
