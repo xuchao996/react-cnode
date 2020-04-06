@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router";
-import "./reset.css"
-import "./App.scss"
-import logo from "./asserts/cnodejs_light.svg"
+import "./reset.css";
+import "./App.scss";
+import logo from "./asserts/cnodejs_light.svg";
 
 // class App extends Component () {
 //   constructor(props) {
@@ -13,7 +13,7 @@ import logo from "./asserts/cnodejs_light.svg"
 //       <div className="App">
 //         <header className="App-header">
 //           <div className="header-logo">
-//             <img src={logo} alt="" /> 
+//             <img src={logo} alt="" />
 //           </div>
 //           <div className="header-search">
 //             <input />
@@ -33,28 +33,42 @@ import logo from "./asserts/cnodejs_light.svg"
 //   }
 // }
 
-function App (props) {
-    return (
-      <div className="App">
+function App(props) {
+  return (
+    <div className="App">
+      <div className="App-header-container">
         <header className="App-header">
           <div className="header-logo">
-            <img src={logo} alt="" /> 
+            <img src={logo} alt="" />
           </div>
           <div className="header-search">
             <input />
           </div>
           <ul className="header-tab">
-            <li><Link to="home">首页</Link></li>
-            <li><Link to="getstart">新手入门</Link></li>
-            <li><Link to="api">API</Link></li>
-            <li><Link to="about">关于</Link></li>
-            <li><Link to="register">注册</Link></li>
-            <li><Link to="login">登陆</Link></li>
+            <li>
+              <Link to="home">首页</Link>
+            </li>
+            <li>
+              <Link to="getstart">新手入门</Link>
+            </li>
+            <li>
+              <Link to="api">API</Link>
+            </li>
+            <li>
+              <Link to="about">关于</Link>
+            </li>
+            <li>
+              <Link to="register">注册</Link>
+            </li>
+            <li>
+              <Link to="login">登陆</Link>
+            </li>
           </ul>
         </header>
-        {props.children}
       </div>
-    );
+      {props.children}
+    </div>
+  );
 }
 
 export default App;
