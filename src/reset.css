@@ -5,7 +5,7 @@
 }
 
 ul li {
-	list-style: none;
+	/* list-style: none; */
 }
 
 a {
@@ -17,5 +17,5 @@ i {
 }
 
 img {
-	width: 100%;
+	/* width: 100%; */
 }
