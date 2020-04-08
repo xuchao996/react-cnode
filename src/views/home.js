@@ -11,7 +11,7 @@ import moment from "moment";
 function ListItem(props) {
   const author = props.item.author;
   const item = props.item;
-  const clickHandler = function(e) {
+  const clickHandler = function (e) {
     e.stopPropagation();
     props.handleClickUser(item);
   };
@@ -27,14 +27,14 @@ function ListItem(props) {
           <span className="reply_count">{item.reply_count}</span>/
           <span className="visit_count">{item.visit_count}</span>
         </div>
+        <div className="last_active_time" style={{ float: "right" }}>
+          {last_reply_at}
+        </div>
         <div className="title">
           <span className={`tag ${item.top ? "tag-top" : null}`}>
             {item.top ? "置顶" : item.tab === "share" ? "分享" : "问答"}
           </span>
-          <p>{props.children}</p>
-        </div>
-        <div className="last_active_time" style={{ float: "right" }}>
-          {last_reply_at}
+          <p title={props.children}>{props.children}</p>
         </div>
       </li>
     </Fragment>
@@ -44,24 +44,24 @@ function Tabs(props) {
   const list = [
     {
       name: "全部",
-      code: ""
+      code: "",
     },
     {
       name: "精华",
-      code: "good"
+      code: "good",
     },
     {
       name: "分享",
-      code: "share"
+      code: "share",
     },
     {
       name: "问答",
-      code: "ask"
+      code: "ask",
     },
     {
       name: "招聘",
-      code: "job"
-    }
+      code: "job",
+    },
     // {
     // 	name: '客户端测试',
     // 	code: 'test'
@@ -69,7 +69,7 @@ function Tabs(props) {
   ];
   return (
     <ul className="tabs">
-      {list.map(item => {
+      {list.map((item) => {
         return (
           <li
             onClick={() => props.handleToggleTab(item.code)}
@@ -89,18 +89,18 @@ class Home extends Component {
     super(props);
     this.state = {
       list: [],
-      tab: ""
+      tab: "",
     };
     this.handleClickItem = this.handleClickItem.bind(this);
     this.handleToggleTab = this.handleToggleTab.bind(this);
     this.handleClickUser = this.handleClickUser.bind(this);
   }
   componentDidMount() {
-    getTopics().then(response => {
+    getTopics().then((response) => {
       const data = response;
       if (data.success) {
         this.setState({
-          list: data.data
+          list: data.data,
         });
       }
     });
@@ -109,14 +109,14 @@ class Home extends Component {
     const { id } = target;
     if (!id) return;
     this.context.router.push({
-      pathname: "/detail/" + id
+      pathname: "/detail/" + id,
     });
   }
   handleClickUser(target) {
     console.log(target);
     const { author } = target;
     this.context.router.push({
-      pathname: "/user/" + author.loginname
+      pathname: "/user/" + author.loginname,
     });
     // getUserDetail(author.loginname).then((response) => {
     // 	const data = response;
@@ -131,13 +131,13 @@ class Home extends Component {
 
   handleToggleTab(value) {
     getTopics({
-      tab: value
-    }).then(response => {
+      tab: value,
+    }).then((response) => {
       const data = response;
       if (data.success) {
         this.setState({
           list: data.data,
-          tab: value
+          tab: value,
         });
       }
     });
@@ -145,13 +145,13 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <ContentContainer>
+        <ContentContainer className="main">
           <Tabs
             code={this.state.tab}
             handleToggleTab={this.handleToggleTab}
           ></Tabs>
           <ul className="list">
-            {this.state.list.map(item => (
+            {this.state.list.map((item) => (
               <ListItem
                 item={item}
                 key={item.id}
@@ -178,7 +178,7 @@ class Home extends Component {
 }
 
 Home.contextTypes = {
-  router: PropTypes.object
+  router: PropTypes.object,
 };
 
 export default Home;

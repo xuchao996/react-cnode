@@ -1,4 +1,5 @@
 .detail {
+
     .content-header {
         padding: 10px;
         .title {
@@ -31,6 +32,13 @@
         }
     }
     // .content
+    .content-container {
+        padding: 10px;
+        border-top: 1px solid #e5e5e5;
+        & > div {
+            margin: 0 10px;
+        }
+    }
     code {
         .markdown-text {
             padding: 0 20px;
@@ -43,13 +51,53 @@
         }
     }
 }
+.content-header {
+    background-color: #fff;
+}
+.content-container {
+    background-color: #fff;
+}
 
-.reply-list {
+
+.panel {
+    margin-bottom: 13px;
+}
+.replies-header {
+    padding: 10px;
     background-color: #f6f6f6;
-    padding: 20px;
+    border-radius: 3px 3px 0 0;
+}
+.reply-list {
+    background-color: #fff;
     li {
         p {
             line-height: 20px;
+        }
+    }
+    .reply-list-item {
+        padding: 10px;
+        background: #fff;
+        border-top: 1px solid #f0f0f0;
+        .item-title {
+            line-height: 20px;
+            img {
+                float: left;
+                width: 30px;
+                height: 30px;
+                border-radius: 3px;
+                margin-right: 5px;
+            }
+            .name {
+                color: #666;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: 700;
+            }
+        }
+        .reply_content {
+            padding-left: 50px;
+            color: #333;
+            font-size: 14px;
         }
     }
 }

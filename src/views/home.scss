@@ -1,4 +1,7 @@
 $active_color: #80bd01;
+ul li {
+    list-style: none;
+}
 .home {
     .list {
         > li {
@@ -8,22 +11,25 @@ $active_color: #80bd01;
             cursor: pointer;
             border-top: 1px solid #f0f0f0;
             font-size: 12px;
+            position: relative;
             
-
+            line-height: 2em;
             &::nth-child(1) {
                 border-top: none;
             }
             & > div {
-                // display: inline-block;
-                float: left;
                 min-width: 30px;
                 img {
+                    display: inline-block;
                     height: 30px;
                     width: 30px;
                     border-radius: 2px;
                 }
+                &.person {
+                    float: left;
+                }
                 &.count {
-                    display: inline-block;
+                    float: left;
                     margin-top: 6px;
                     color: #999;
                     // width: 80px;
@@ -36,12 +42,14 @@ $active_color: #80bd01;
                 }
                 &.title {
                     margin-top: 4px;
-                    width: 60%;
+                    // width: 100%;
+                    height: 30px;
+                    line-height: 30px;
                     overflow: hidden;
                     text-overflow:ellipsis;
                     white-space: nowrap;
-                    white-space: nowrap;
-                    display: flex;
+                    // white-space: nowrap;
+                    // display: flex;
                     .tag {
                         font-size: 12px;
                         background: #e5e5e5;
@@ -56,10 +64,12 @@ $active_color: #80bd01;
                     }
                     p {
                         // max-width: 70%;
+                        display: inline-block;
                         font-size: 14px;
                         overflow: hidden;
                         text-overflow:ellipsis;
                         white-space: nowrap;
+                        margin: 0;
                     }
                 }
                 &.last_active_time {
