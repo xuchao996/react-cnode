@@ -1,11 +1,48 @@
+.markdown-text ul li {
+  list-style: disc;
+}
+ol,
+ul {
+  padding: 0;
+  margin: 0 0 10px 25px;
+}
+.preview p,
+.reply_content p,
+.reply_form p,
+.topic_content p {
+  font-size: 15px;
+}
+.markdown-text p {
+  font-size: 15px;
+  line-height: 1.7em;
+  overflow: auto;
+}
+.markdown-text {
+  h1 small,
+  h3 {
+    font-size: 24.5px;
+  }
+}
 
+.topic_full_title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 8px 0;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 75%;
+  line-height: 130%;
+}
+
+img {
+  width: 100%;
+}
 .user {
-    .user-info {
-        img {
-            width: 30px;
-        }
+  .user-info {
+    img {
+      width: 30px;
     }
-    .recent-reply-list {
-        
-    }
+  }
+  .recent-reply-list {
+  }
 }

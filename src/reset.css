@@ -1,21 +1,21 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 ul li {
-	/* list-style: none; */
+  /* list-style: none; */
 }
 
 a {
-	color: #000;
-	text-decoration: none;
+  color: #000;
+  text-decoration: none;
 }
 i {
-	font-style: normal;
+  font-style: normal;
 }
 
 img {
-	/* width: 100%; */
+  /* width: 100%; */
 }

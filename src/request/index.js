@@ -2,15 +2,15 @@ import Axios from "axios";
 
 const request = Axios.create({
   baseURL: "https://cnodejs.org/",
-  timeout: 5000
+  timeout: 15000,
 });
 
 // 拦截器
 request.interceptors.response.use(
-  function(response) {
+  function (response) {
     return response.data;
   },
-  function(err) {
+  function (err) {
     return new Error(err);
   }
 );

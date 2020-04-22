@@ -8,6 +8,11 @@ import { ContentContainer, AsideContainer } from "../components";
 
 import moment from "moment";
 
+import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
 function ListItem(props) {
   const author = props.item.author;
   const item = props.item;
@@ -90,6 +95,7 @@ class Home extends Component {
     this.state = {
       list: [],
       tab: "",
+      loading: false,
     };
     this.handleClickItem = this.handleClickItem.bind(this);
     this.handleToggleTab = this.handleToggleTab.bind(this);
@@ -130,6 +136,9 @@ class Home extends Component {
   }
 
   handleToggleTab(value) {
+    this.setState({
+      loading: true,
+    });
     getTopics({
       tab: value,
     }).then((response) => {
@@ -138,11 +147,13 @@ class Home extends Component {
         this.setState({
           list: data.data,
           tab: value,
+          loading: false,
         });
       }
     });
   }
   render() {
+    const { loading } = this.state;
     return (
       <div className="home">
         <ContentContainer className="main">
@@ -150,18 +161,20 @@ class Home extends Component {
             code={this.state.tab}
             handleToggleTab={this.handleToggleTab}
           ></Tabs>
-          <ul className="list">
-            {this.state.list.map((item) => (
-              <ListItem
-                item={item}
-                key={item.id}
-                handleClickItem={this.handleClickItem}
-                handleClickUser={this.handleClickUser}
-              >
-                {item.title}
-              </ListItem>
-            ))}
-          </ul>
+          <Spin indicator={antIcon} spinning={loading}>
+            <ul className="list">
+              {this.state.list.map((item) => (
+                <ListItem
+                  item={item}
+                  key={item.id}
+                  handleClickItem={this.handleClickItem}
+                  handleClickUser={this.handleClickUser}
+                >
+                  {item.title}
+                </ListItem>
+              ))}
+            </ul>
+          </Spin>
         </ContentContainer>
         <AsideContainer>
           <div className="aside-item">

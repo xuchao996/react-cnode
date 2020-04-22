@@ -2,9 +2,15 @@ import React, { Component } from "react";
 
 import { getTopicDetail } from "../Api";
 
+import { PropTypes } from "prop-types";
+
 import { ContentContainer, AsideContainer } from "../components";
 
 import "./topicDetail.scss";
+
+import moment from "moment";
+moment.locale("zh-cn");
+window._moment = moment;
 
 function ReplyList(props) {
   const { replies } = props;
@@ -32,6 +38,7 @@ class TopicDetail extends Component {
     this.state = {
       detail: {},
     };
+    this.handleClickUser = this.handleClickUser.bind(this);
   }
   async componentDidMount() {
     const id = this.props.params.id;
@@ -47,9 +54,21 @@ class TopicDetail extends Component {
       }
     });
   }
+  handleClickUser(author) {
+    this.context.router.push({
+      pathname: "/user/" + author.loginname,
+    });
+  }
   render() {
-    console.log("test");
-    const { author = {}, replies = [] } = this.state.detail;
+    const {
+      author = {},
+      replies = [],
+      create_at,
+      last_reply_at,
+      visit_count,
+    } = this.state.detail;
+    const create_at_time = moment(create_at).fromNow();
+    const last_reply_at_time = moment(last_reply_at).fromNow();
     const detail = this.state.detail;
     return (
       <div className="home detail">
@@ -60,7 +79,24 @@ class TopicDetail extends Component {
                 {detail.top ? <i>Up</i> : null}
                 {this.state.detail.title}
               </h3>
-              <p className="author">
+              <div className="extend-status">
+                <div>
+                  <label>创建时间</label>
+                  <span className="time-status">{create_at_time}</span>
+                </div>
+                <div>
+                  <label>最近回复</label>
+                  <span> {last_reply_at_time}</span>
+                </div>
+                <div>
+                  <label>浏览人数</label>
+                  <span> {visit_count}</span>
+                </div>
+              </div>
+              <p
+                className="author"
+                onClick={this.handleClickUser.bind(this, author)}
+              >
                 <img src={author.avatar_url} alt="" />
                 <span className="author-name">{author.loginname}</span>
               </p>
@@ -84,5 +120,9 @@ class TopicDetail extends Component {
     );
   }
 }
+
+TopicDetail.contextTypes = {
+  router: PropTypes.object,
+};
 
 export default TopicDetail;

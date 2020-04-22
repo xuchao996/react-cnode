@@ -1,4 +1,9 @@
 {
-  "editor.formatOnSave": false,
-  "editor.tabSize": 4
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "tabSize": 4
+  }
 }

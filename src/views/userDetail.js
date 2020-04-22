@@ -10,7 +10,7 @@ function List(props, ItemFn) {
   const { list } = props;
   return (
     <ul className="recent-reply-list">
-      {list.map(item => {
+      {list.map((item) => {
         return ItemFn(item);
       })}
     </ul>
@@ -36,7 +36,7 @@ class TopicDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      detail: {}
+      detail: {},
     };
   }
   componentDidMount() {
@@ -44,10 +44,10 @@ class TopicDetail extends Component {
     this.getData(id);
   }
   getData(id) {
-    getUserDetail(id).then(response => {
+    getUserDetail(id).then((response) => {
       if (response.success) {
         this.setState({
-          detail: response.data
+          detail: response.data,
         });
       }
     });
@@ -58,7 +58,8 @@ class TopicDetail extends Component {
       avatar_url,
       recent_replies = [],
       recent_topics,
-      score
+      score,
+      create_at,
     } = this.state.detail;
     const detail = this.state.detail;
     return (
