@@ -34,6 +34,20 @@ import logo from "./asserts/cnodejs_light.svg";
 // }
 
 function App(props) {
+  const searchHandler = function (e) {
+    console.log("keyCode", e.keyCode);
+    console.log("value", e.target.value);
+    const {
+      keyCode,
+      target: { value },
+    } = e;
+    if (keyCode === 13) {
+      window.open(
+        "https://www.google.com.hk/search?hl=zh-CN&q=site:cnodejs.org+2020&cad=" +
+          value
+      );
+    }
+  };
   return (
     <div className="App">
       <div className="App-header-container">
@@ -42,7 +56,7 @@ function App(props) {
             <img src={logo} alt="" />
           </div>
           <div className="header-search">
-            <input />
+            <input onKeyUp={searchHandler} />
           </div>
           <ul className="header-tab">
             <li>
