@@ -27,6 +27,7 @@ ul li {
         }
         &.person {
           float: left;
+          position: relative; /* 防止 .title 元素遮挡当前元素 */
         }
         &.count {
           float: left;
