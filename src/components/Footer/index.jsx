@@ -4,11 +4,11 @@ import "./index.scss";
 export default function Footer(props) {
   return (
     <footer className="footer">
-      <a class="dark" href="/#">
+      <a className="dark" href="/#">
         RSS
       </a>
       |
-      <a class="dark" href="https://github.com/cnodejs/nodeclub/">
+      <a className="dark" href="https://github.com/cnodejs/nodeclub/">
         源码地址
       </a>
       <p>

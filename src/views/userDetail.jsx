@@ -18,10 +18,11 @@ function List(props, ItemFn) {
 }
 
 function ReplyItem(props) {
-  return <li></li>;
+  console.log(props);
+  return <li key={props.id}></li>;
 }
 function TopicItem(props) {
-  return <li></li>;
+  return <li key={props.id}></li>;
 }
 
 function RecentReply(props) {
@@ -31,6 +32,33 @@ function RecentReply(props) {
 function RecentTopics(props) {
   return List(props, TopicItem);
 }
+
+function WithContent(Content) {
+  return class extends Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+        <div>
+          <div className="header"></div>
+          <Content {...this.props} />
+        </div>
+      );
+    }
+  };
+}
+const userInfo = function (props) {
+  const { loginname, avatar_url, score } = props;
+  return (
+    <div className="user-info">
+      <img src={avatar_url} alt="" />
+      <p>{loginname}</p>
+      <p>{score}</p>
+    </div>
+  );
+};
+const UserInfoContent = WithContent(userInfo);
 
 class UserDetail extends Component {
   constructor(props) {
@@ -65,11 +93,11 @@ class UserDetail extends Component {
       <div className="home user">
         {detail.loginname ? (
           <ContentContainer>
-            <div className="user-info">
-              <img src={avatar_url} alt="" />
-              <p>{loginname}</p>
-              <p>{score}</p>
-            </div>
+            <UserInfoContent
+              loginname={loginname}
+              avatar_url={avatar_url}
+              score={score}
+            ></UserInfoContent>
             <RecentReply list={recent_replies}></RecentReply>
             {/* 最近创建的话题列表 */}
             <RecentTopics list={recent_topics}></RecentTopics>

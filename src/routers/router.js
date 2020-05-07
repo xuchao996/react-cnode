@@ -5,7 +5,7 @@ import Login from "../views/login.js";
 import Getstart from "../views/getstart.js";
 import Home from "../views/home.jsx";
 import TopicDetail from "../views/topicDetail.js";
-import UserDetail from "../views/userDetail.js";
+import UserDetail from "../views/userDetail.jsx";
 
 const router = [
   {
