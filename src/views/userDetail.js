@@ -32,7 +32,7 @@ function RecentTopics(props) {
   return List(props, TopicItem);
 }
 
-class TopicDetail extends Component {
+class UserDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,7 +59,6 @@ class TopicDetail extends Component {
       recent_replies = [],
       recent_topics,
       score,
-      create_at,
     } = this.state.detail;
     const detail = this.state.detail;
     return (
@@ -83,4 +82,4 @@ class TopicDetail extends Component {
   }
 }
 
-export default TopicDetail;
+export default UserDetail;

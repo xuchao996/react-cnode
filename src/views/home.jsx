@@ -8,7 +8,7 @@ import { ContentContainer, AsideContainer } from "../components";
 
 import moment from "moment";
 
-import { Spin } from "antd";
+import { Spin, Pagination } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
@@ -96,10 +96,12 @@ class Home extends Component {
       list: [],
       tab: "",
       loading: false,
+      currentPage: 1,
     };
     this.handleClickItem = this.handleClickItem.bind(this);
     this.handleToggleTab = this.handleToggleTab.bind(this);
     this.handleClickUser = this.handleClickUser.bind(this);
+    this.onPageChange = this.onPageChange.bind(this);
   }
   componentDidMount() {
     getTopics().then((response) => {
@@ -107,6 +109,24 @@ class Home extends Component {
       if (data.success) {
         this.setState({
           list: data.data,
+        });
+      }
+    });
+  }
+  onPageChange(page, pageSize) {
+    console.log("page", page);
+    this.setState({
+      loading: true,
+    });
+    getTopics({
+      tab: this.state.tab,
+      page,
+    }).then((response) => {
+      const data = response;
+      if (data.success) {
+        this.setState({
+          list: data.data,
+          loading: false,
         });
       }
     });
@@ -153,10 +173,26 @@ class Home extends Component {
     });
   }
   render() {
-    const { loading } = this.state;
+    const { loading, currentPage } = this.state;
     return (
       <div className="home">
-        <ContentContainer className="main">
+        <aside>
+          <AsideContainer>
+            <p>CNode：Node.js专业中文社区</p>
+            <p>
+              您可以 <i> 登录 </i>或<i> 注册 </i>, 也可以
+              <span> 通过 GitHub 登录</span>
+            </p>
+          </AsideContainer>
+          <AsideContainer>
+            <p>CNode：Node.js专业中文社区</p>
+            <p>
+              您可以 <i> 登录 </i>或<i> 注册 </i>, 也可以
+              <span> 通过 GitHub 登录</span>
+            </p>
+          </AsideContainer>
+        </aside>
+        <ContentContainer>
           <Tabs
             code={this.state.tab}
             handleToggleTab={this.handleToggleTab}
@@ -174,17 +210,16 @@ class Home extends Component {
                 </ListItem>
               ))}
             </ul>
+            <div className="pagination">
+              <Pagination
+                onChange={this.onPageChange}
+                defaultCurrent={currentPage}
+                total={500}
+                showSizeChanger={false}
+              />
+            </div>
           </Spin>
         </ContentContainer>
-        <AsideContainer>
-          <div className="aside-item">
-            <p>CNode：Node.js专业中文社区</p>
-            <p>
-              您可以 <i> 登录 </i>或<i> 注册 </i>, 也可以
-              <span> 通过 GitHub 登录</span>
-            </p>
-          </div>
-        </AsideContainer>
       </div>
     );
   }

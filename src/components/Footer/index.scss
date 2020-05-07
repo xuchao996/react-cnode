@@ -1,0 +1,19 @@
+footer {
+  &.footer {
+    width: 90%;
+    margin: 0 auto;
+    color: #e2e2e2;
+    font-size: 13px;
+    line-height: 2em;
+    a.dark,
+    a.dark:active,
+    a.dark:link,
+    a.dark:visited {
+      color: #666;
+      text-decoration: none;
+    }
+    p {
+      color: #ababab;
+    }
+  }
+}

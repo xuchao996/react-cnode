@@ -3,7 +3,7 @@ import Api from "../views/api.js";
 import About from "../views/about.js";
 import Login from "../views/login.js";
 import Getstart from "../views/getstart.js";
-import Home from "../views/home.js";
+import Home from "../views/home.jsx";
 import TopicDetail from "../views/topicDetail.js";
 import UserDetail from "../views/userDetail.js";
 
@@ -16,34 +16,34 @@ const router = [
     childRoutes: [
       {
         path: "home",
-        component: Home
+        component: Home,
       },
       {
         path: "getstart",
-        component: Getstart
+        component: Getstart,
       },
       {
         path: "api",
-        component: Api
+        component: Api,
       },
       {
         path: "about",
-        component: About
+        component: About,
       },
       {
         path: "login",
-        component: Login
+        component: Login,
       },
       {
         path: "detail/:id",
-        component: TopicDetail
+        component: TopicDetail,
       },
       {
         path: "user/:id",
-        component: UserDetail
-      }
-    ]
-  }
+        component: UserDetail,
+      },
+    ],
+  },
 ];
 
 export default router;

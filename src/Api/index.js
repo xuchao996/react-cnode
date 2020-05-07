@@ -11,29 +11,35 @@ function getTopics(params) {
     params: {
       tab: "",
       limit: 20,
-      ...params
-    }
+      ...params,
+    },
   });
 }
 
 function getTopicDetail(id) {
   return request({
     method: "get",
-    url: `${topicDetail}/${id}`
+    url: `${topicDetail}/${id}`,
+    params: {
+      mdrender: true,
+    },
   });
 }
 
 function getUserDetail(user) {
   return request({
     method: "get",
-    url: `/api/v1/user/${user}`
+    url: `/api/v1/user/${user}`,
+    params: {
+      mdrender: true,
+    },
   });
 }
 
 function getUserCollectionTopic(user) {
   return request({
     method: "get",
-    url: `/api/v1/user/${user}`
+    url: `/api/v1/user/${user}`,
   });
 }
 
@@ -41,7 +47,7 @@ function collectTopic(params) {
   return request({
     method: "post",
     url: "",
-    params
+    params,
   });
 }
 
@@ -49,7 +55,7 @@ function deCollectTopic(params) {
   return request({
     method: "post",
     url: "",
-    params
+    params,
   });
 }
 
@@ -59,5 +65,5 @@ export {
   getUserDetail,
   getUserCollectionTopic,
   deCollectTopic,
-  collectTopic
+  collectTopic,
 };

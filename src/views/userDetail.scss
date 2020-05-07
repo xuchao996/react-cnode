@@ -1,8 +1,8 @@
 .markdown-text ul li {
   list-style: disc;
 }
-ol,
-ul {
+.markdown-text ol,
+.markdown-text ul {
   padding: 0;
   margin: 0 0 10px 25px;
 }
@@ -45,4 +45,32 @@ img {
   }
   .recent-reply-list {
   }
+}
+
+.markdown-text li code,
+.markdown-text p code,
+.preview li code,
+.preview p code {
+  color: #000;
+  background-color: #fcfafa;
+  padding: 4px 6px;
+}
+
+div pre.prettyprint {
+  font-size: 14px;
+  border-radius: 0;
+  padding: 0 15px;
+  border: none;
+  margin: 20px -10px;
+  border-width: 1px 0;
+  background: #f7f7f7;
+  -o-tab-size: 4;
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+code,
+pre {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  color: #333333;
 }

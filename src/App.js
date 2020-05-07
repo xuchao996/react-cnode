@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import "./reset.css";
 import "./App.scss";
 import logo from "./asserts/cnodejs_light.svg";
+import { Footer } from "./components/index";
 
 // class App extends Component () {
 //   constructor(props) {
@@ -81,6 +82,9 @@ function App(props) {
         </header>
       </div>
       {props.children}
+      <div className="App-footer-container">
+        <Footer />
+      </div>
     </div>
   );
 }

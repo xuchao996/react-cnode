@@ -1,4 +1,5 @@
-import ContentContainer from "./ContainerMain";
-import AsideContainer from "./ContainerAside";
+import ContentContainer from "./ContainerMain.jsx";
+import AsideContainer from "./ContainerAside.jsx";
+import Footer from "./Footer";
 
-export { ContentContainer, AsideContainer };
+export { ContentContainer, AsideContainer, Footer };

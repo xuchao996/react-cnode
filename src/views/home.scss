@@ -81,6 +81,7 @@ ul li {
     line-height: 40px;
     background-color: #f6f6f6;
     padding: 0 10px;
+    margin: 0;
     li {
       width: 36px;
       height: 22px;
@@ -111,15 +112,17 @@ ul li {
   position: relative;
   .main {
     background-color: #fff;
+    margin-right: 305px;
   }
-  .aside {
-    max-width: 300px;
+  aside {
+    float: right;
+    width: 290px;
     min-width: 200px;
     height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
     font-size: 14px;
+    .aside-item + .aside-item {
+      margin-top: 13px;
+    }
     .aside-item {
       padding: 10px;
       border-radius: 3px;
@@ -140,4 +143,24 @@ ul li {
       }
     }
   }
+  .pagination {
+    height: 40px;
+    margin: 10px 0 0 10px;
+  }
+}
+
+// 内容区域样式设置
+.home {
+  width: 90%;
+  max-width: 1400px;
+  min-width: 960px;
+  min-height: 400px;
+  // height: 100%;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: transparent;
+}
+.home .main {
+  margin-right: 305px;
 }
